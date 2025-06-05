@@ -44,13 +44,13 @@ describe 'Game' do
     end
 
     it 'should deal seven cards to each player' do
-      # player1 = game.add_player('Player2')
-      # player2 = game.add_player('Player2')
-      # game.start
+      game.add_player('Player1')
+      game.add_player('Player2')
+      game.start
 
-      # expect(game.players[0].hand.count).to eq 7
-      # expect(game.players[1].hand.count).to eq 7
-      # expect(game.deck.cards.count).to eq Deck::FULL_DECK_SIZE - 14
+      expect(game.players[0].hand.count).to eq 7
+      expect(game.players[1].hand.count).to eq 7
+      expect(game.deck.cards.count).to eq Deck::FULL_DECK_SIZE - 14
     end
 
     it 'should check each player for books'

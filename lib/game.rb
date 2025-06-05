@@ -24,5 +24,6 @@ class Game
 
   def start
     deck.shuffle!
+    deal_hands
   end
 end
