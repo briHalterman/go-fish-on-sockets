@@ -5,7 +5,7 @@ describe 'Deck' do
     it 'should initialize with a full deck of cards' do
       deck = Deck.new
 
-      expect(deck.cards.count).to eq 52
+      expect(deck.cards.count).to eq Deck::FULL_DECK_SIZE
     end
 
     it 'initialize with unique cards'
