@@ -14,10 +14,16 @@ describe 'Game' do
       expect(game.players).to be_empty
     end
 
-    it 'should initialize with a books pile for each player'
   end
 
-  describe 'add_player'
+  describe 'add_player' do
+    it 'should add a new player to players' do
+      game = Game.new
+      game.add_player('Player1')
+
+      expect(game.players.count).to eq 1
+    end
+  end
 
   describe 'start' do
     it 'should shuffle the deck'
