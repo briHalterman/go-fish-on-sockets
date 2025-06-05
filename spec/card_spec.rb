@@ -9,7 +9,11 @@ describe 'Card' do
       expect(card.suit).to eq 'H'
     end
 
-    it 'should be a valid rank'
+    it 'should be a valid rank' do
+      expect{
+        Card.new('X', 'H')
+    }.to raise_error StandardError
+    end
 
     it 'should be a valid suit'
   end
