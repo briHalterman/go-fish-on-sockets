@@ -10,4 +10,10 @@ describe 'Player' do
   describe 'request_rank' do
     it 'should request a rank from a player'
   end
+
+  describe 'handle_book' do
+    it 'should record a book'
+
+    it 'should remove a book from hand'
+  end
 end

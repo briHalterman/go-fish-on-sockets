@@ -2,7 +2,9 @@ require_relative '../lib/game.rb'
 
 describe 'Game' do
   describe 'initialize' do
-    it 'should initialize a game with a deck'
+    it 'should initialize a game with a deck' do
+      
+    end
 
     it 'should initialize a game with two players'
 
@@ -33,10 +35,6 @@ describe 'Game' do
     it 'if should take a card from the deck and give it to the player'
 
     it 'should check a player for books'
-
-    it 'should remove book from player\'s hand'
-
-    it 'should record ' # hmmmm?
 
     it 'should check if a player is out of cards'
 
