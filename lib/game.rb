@@ -13,6 +13,15 @@ class Game
     players.push(Player.new(name))
   end
 
+  def deal_hands
+    7.times do
+      players.map do |player|
+        card = deck.deal
+        player.accept_card(card)
+      end
+    end
+  end
+
   def start
     deck.shuffle!
   end

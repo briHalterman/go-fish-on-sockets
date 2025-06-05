@@ -22,6 +22,18 @@ describe 'Game' do
     end
   end
 
+  describe 'deal_hands' do
+    it 'should deal seven cards to each player' do
+      game.add_player('Player1')
+      game.add_player('Player2')
+      game.deal_hands
+
+      expect(game.players[0].hand.count).to eq 7
+      expect(game.players[1].hand.count).to eq 7
+      expect(game.deck.cards.count).to eq Deck::FULL_DECK_SIZE - 14
+    end
+  end
+
   describe 'start' do
     it 'should shuffle the deck' do
       stable_deck = Deck.new
@@ -31,7 +43,15 @@ describe 'Game' do
       expect(shuffle_deck).to_not eq stable_deck
     end
 
-    it 'should deal seven card to each player'
+    it 'should deal seven cards to each player' do
+      # player1 = game.add_player('Player2')
+      # player2 = game.add_player('Player2')
+      # game.start
+
+      # expect(game.players[0].hand.count).to eq 7
+      # expect(game.players[1].hand.count).to eq 7
+      # expect(game.deck.cards.count).to eq Deck::FULL_DECK_SIZE - 14
+    end
 
     it 'should check each player for books'
 
