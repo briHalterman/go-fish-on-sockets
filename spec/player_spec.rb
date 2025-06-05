@@ -2,7 +2,11 @@ require_relative '../lib/player.rb'
 
 describe 'Player' do
   describe 'initialize' do
-    it 'should initialize with a name'
+    it 'should initialize with a name' do
+      player = Player.new('PlayerX')
+
+      expect(player.name).to eq 'PlayerX'
+    end
 
     it 'should initialize with an empty hand'
   end
