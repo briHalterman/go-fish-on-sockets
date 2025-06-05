@@ -35,7 +35,12 @@ describe 'Deck' do
   end
 
   describe 'deal' do
-    it 'should add a card to a player\'s hand'
+    it 'should remove a dealt card from the deck' do
+      card = deck.deal
+
+      expect(card).to_not be_nil
+      expect(deck.cards.count).to eq Deck::FULL_DECK_SIZE - 1
+    end
 
     it 'should remove the card that it gives to a player'
   end

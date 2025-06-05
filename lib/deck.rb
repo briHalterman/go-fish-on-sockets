@@ -17,6 +17,10 @@ class Deck
     end
   end
 
+  def deal
+    cards.pop
+  end
+
   def shuffle!
     cards.shuffle!
   end
