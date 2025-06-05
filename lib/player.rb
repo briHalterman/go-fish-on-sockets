@@ -5,4 +5,8 @@ class Player
     @name = name
     @hand ||= []
   end
+
+  def accept_card(card)
+    hand.push(card)
+  end
 end

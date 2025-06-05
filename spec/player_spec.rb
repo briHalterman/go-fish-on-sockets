@@ -1,4 +1,5 @@
 require_relative '../lib/player.rb'
+require_relative '../lib/card.rb'
 
 describe 'Player' do
   describe 'initialize' do
@@ -12,6 +13,16 @@ describe 'Player' do
       player = Player.new('Player')
 
       expect(player.hand).to be_empty
+    end
+  end
+
+  describe 'accept_card' do
+    it 'should add a card to a player\'s hand' do
+      player = Player.new('Player')
+      card = Card.new('A', 'H')
+      player.accept_card(card)
+
+      expect(player.hand.count).to eq 1
     end
   end
 
