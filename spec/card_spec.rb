@@ -15,6 +15,10 @@ describe 'Card' do
     }.to raise_error StandardError
     end
 
-    it 'should be a valid suit'
+    it 'should be a valid suit' do
+      expect{
+        Card.new('A', 'X')
+    }.to raise_error StandardError
+    end
   end
 end
