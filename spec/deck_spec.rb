@@ -2,7 +2,11 @@ require_relative '../lib/deck.rb'
 
 describe 'Deck' do
   describe 'initialize' do
-    it 'should initialize with a full deck of cards'
+    it 'should initialize with a full deck of cards' do
+      deck = Deck.new
+
+      expect(deck.cards.count).to eq 52
+    end
 
     it 'initialize with unique cards'
 
