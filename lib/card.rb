@@ -16,4 +16,9 @@ class Card
       raise StandardError, "#{suit} is not a valid suit"
     end
   end
+
+  def ==(other_card)
+    rank == other_card.rank &&
+    suit == other_card.suit
+  end
 end

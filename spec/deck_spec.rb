@@ -25,10 +25,16 @@ describe 'Deck' do
   end
 
   describe 'shuffle' do
-    it 'should shuffle the deck'
+    it 'should shuffle the deck' do
+      stable_deck = Deck.new
+      shuffle_deck = Deck.new
+      expect(stable_deck).to eq shuffle_deck
+      shuffle_deck.shuffle!
+      expect(stable_deck).to_not eq shuffle_deck
+    end
   end
 
-  describe 'deal_card' do
+  describe 'deal' do
     it 'should add a card to a player\'s hand'
 
     it 'should remove the card that it gives to a player'
