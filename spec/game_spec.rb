@@ -8,10 +8,16 @@ describe 'Game' do
       expect(game.deck).to respond_to :cards
     end
 
-    it 'should initialize a game with two players'
+    it 'should initialize a game with no players' do
+      game = Game.new
+
+      expect(game.players).to be_empty
+    end
 
     it 'should initialize with a books pile for each player'
   end
+
+  describe 'add_player'
 
   describe 'start' do
     it 'should shuffle the deck'
