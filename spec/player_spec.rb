@@ -8,7 +8,11 @@ describe 'Player' do
       expect(player.name).to eq 'PlayerX'
     end
 
-    it 'should initialize with an empty hand'
+    it 'should initialize with an empty hand' do
+      player = Player.new('Player')
+
+      expect(player.hand).to be_empty
+    end
   end
 
   describe 'request_rank' do
