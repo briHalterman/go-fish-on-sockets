@@ -1,16 +1,14 @@
 require_relative '../lib/game.rb'
 
 describe 'Game' do
+  let(:game) { Game.new }
+
   describe 'initialize' do
     it 'should initialize a game with a deck' do
-      game = Game.new
-
       expect(game.deck).to respond_to :cards
     end
 
     it 'should initialize a game with no players' do
-      game = Game.new
-
       expect(game.players).to be_empty
     end
 
@@ -18,7 +16,6 @@ describe 'Game' do
 
   describe 'add_player' do
     it 'should add a new player to players' do
-      game = Game.new
       game.add_player('Player1')
 
       expect(game.players.count).to eq 1
