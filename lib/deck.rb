@@ -6,10 +6,14 @@ class Deck
   FULL_DECK_SIZE = 52
 
   def initialize
-    @cards ||= []
+    @cards = build_deck
+  end
 
-    FULL_DECK_SIZE.times do
-      cards.push(Card.new('A', 'H'))
+  def build_deck
+    Card::SUIT.flat_map do |suit|
+      Card::RANK.map do |rank|
+        Card.new(rank, suit)
+      end
     end
   end
 end

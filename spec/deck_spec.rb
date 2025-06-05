@@ -8,7 +8,11 @@ describe 'Deck' do
       expect(deck.cards.count).to eq Deck::FULL_DECK_SIZE
     end
 
-    it 'initialize with unique cards'
+    it 'initialize with unique cards' do
+      deck = Deck.new
+      
+      expect(deck.cards.uniq(&:to_s).count).to eq Deck::FULL_DECK_SIZE
+    end
 
     it 'should include every suit'
 
