@@ -8,15 +8,21 @@ describe 'Deck' do
       expect(deck.cards.count).to eq Deck::FULL_DECK_SIZE
     end
 
-    it 'initialize with unique cards' do
+    it 'initialize with 52 unique cards' do
       deck = Deck.new
-      
+
       expect(deck.cards.uniq(&:to_s).count).to eq Deck::FULL_DECK_SIZE
     end
 
-    it 'should include every suit'
+    it 'should include every rank' do
+      deck = Deck.new
+      
+      Card::RANK.each do |rank|
+        expect(deck.cards.map(&:rank)).to include(rank)
+      end
+    end
 
-    it 'should include every rank'
+    it 'should include every suit'
   end
 
   describe 'shuffle' do
