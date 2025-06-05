@@ -3,7 +3,9 @@ require_relative '../lib/game.rb'
 describe 'Game' do
   describe 'initialize' do
     it 'should initialize a game with a deck' do
-      
+      game = Game.new
+
+      expect(game.deck).to respond_to :cards
     end
 
     it 'should initialize a game with two players'
