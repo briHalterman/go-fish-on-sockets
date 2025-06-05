@@ -17,7 +17,11 @@ describe 'Deck' do
       end
     end
 
-    it 'should include every suit'
+    it 'should include every suit' do
+      Card::SUIT.each do |suit|
+        expect(deck.cards.map(&:suit)).to include(suit)
+      end
+    end
   end
 
   describe 'shuffle' do
