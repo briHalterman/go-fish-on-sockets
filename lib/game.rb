@@ -12,4 +12,8 @@ class Game
   def add_player(name)
     players.push(Player.new(name))
   end
+
+  def start
+    deck.shuffle!
+  end
 end

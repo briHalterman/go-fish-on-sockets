@@ -23,7 +23,13 @@ describe 'Game' do
   end
 
   describe 'start' do
-    it 'should shuffle the deck'
+    it 'should shuffle the deck' do
+      stable_deck = Deck.new
+      shuffle_deck = game.deck
+      expect(shuffle_deck).to eq stable_deck
+      game.start
+      expect(shuffle_deck).to_not eq stable_deck
+    end
 
     it 'should deal seven card to each player'
 
