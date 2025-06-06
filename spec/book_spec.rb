@@ -30,7 +30,7 @@ describe 'Book' do
     book = Book.new(card1, card2, card3, card4)
 
     Card::SUIT.each do |suit|
-      expect(book.map(&:suit)).to include(suit)
+      expect(book.book_cards.map(&:suit)).to include(suit)
     end
   end
 end
