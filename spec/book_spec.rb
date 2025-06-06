@@ -9,20 +9,22 @@ describe 'Book' do
 
   let(:book) { Book.new(card1, card2, card3, card4) }
 
-  it 'should initialize with four cards' do
-    expect(book.book_cards.count).to eq 4
-  end
-  it 'should contain cards of only one rank' do
-    card4 = Card.new('K', 'S')
+  describe '#initialize' do
+    it 'should initialize with four cards' do
+      expect(book.book_cards.count).to eq 4
+    end
+    it 'should contain cards of only one rank' do
+      card4 = Card.new('K', 'S')
 
-    expect{
-      Book.new(card1, card2, card3, card4)
-    }.to raise_error StandardError
-  end
+      expect{
+        Book.new(card1, card2, card3, card4)
+      }.to raise_error StandardError
+    end
 
-  it 'should contain a card of each suit' do
-    Card::SUIT.each do |suit|
-      expect(book.book_cards.map(&:suit)).to include(suit)
+    it 'should contain a card of each suit' do
+      Card::SUIT.each do |suit|
+        expect(book.book_cards.map(&:suit)).to include(suit)
+      end
     end
   end
 end

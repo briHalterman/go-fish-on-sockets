@@ -3,7 +3,7 @@ require_relative '../lib/game.rb'
 describe 'Game' do
   let(:game) { Game.new }
 
-  describe 'initialize' do
+  describe '#initialize' do
     it 'should initialize a game with a deck' do
       expect(game.deck).to respond_to :cards
     end
@@ -14,7 +14,7 @@ describe 'Game' do
 
   end
 
-  describe 'add_player' do
+  describe '#add_player' do
     it 'should add a new player to players' do
       game.add_player('Player1')
 
@@ -22,7 +22,7 @@ describe 'Game' do
     end
   end
 
-  describe 'determine_deal_size' do
+  describe '#determine_deal_size' do
     it 'should assign a deal size of seven if there are two or three players' do
       game.add_player('Player1')
       game.add_player('Player2')
@@ -40,7 +40,7 @@ describe 'Game' do
     end
   end
 
-  describe 'deal_hands' do
+  describe '#deal_hands' do
     it 'should deal the correct number of cards to each player' do
       game.add_player('Player1')
       game.add_player('Player2')
@@ -53,7 +53,7 @@ describe 'Game' do
     end
   end
 
-  describe 'start' do
+  describe '#start' do
     it 'should shuffle the deck' do
       stable_deck = Deck.new
       shuffle_deck = game.deck

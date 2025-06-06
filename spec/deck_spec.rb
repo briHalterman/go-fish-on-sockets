@@ -2,7 +2,7 @@ require_relative '../lib/deck.rb'
 
 describe 'Deck' do
   let(:deck) { Deck.new }
-  describe 'initialize' do
+  describe '#initialize' do
     it 'should initialize with a full deck of cards' do
       expect(deck.cards.count).to eq Deck::FULL_DECK_SIZE
     end
@@ -24,7 +24,7 @@ describe 'Deck' do
     end
   end
 
-  describe 'shuffle' do
+  describe '#shuffle' do
     it 'should shuffle the deck' do
       stable_deck = Deck.new
       shuffle_deck = Deck.new
@@ -34,7 +34,7 @@ describe 'Deck' do
     end
   end
 
-  describe 'deal' do
+  describe '#deal' do
     it 'should remove a dealt card from the deck' do
       card = deck.deal
 

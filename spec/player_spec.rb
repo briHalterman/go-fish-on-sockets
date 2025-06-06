@@ -2,7 +2,7 @@ require_relative '../lib/player.rb'
 require_relative '../lib/card.rb'
 
 describe 'Player' do
-  describe 'initialize' do
+  describe '#initialize' do
     it 'should initialize with a name' do
       player = Player.new('PlayerX')
 
@@ -16,7 +16,7 @@ describe 'Player' do
     end
   end
 
-  describe 'accept_card' do
+  describe '#accept_card' do
     it 'should add a card to a player\'s hand' do
       player = Player.new('Player')
       card = Card.new('A', 'H')
@@ -26,11 +26,11 @@ describe 'Player' do
     end
   end
 
-  describe 'request_rank' do
+  describe '#request_rank' do
     it 'should request a rank from a player'
   end
 
-  describe 'handle_book' do
+  describe '#handle_book' do
     it 'should record a book'
 
     it 'should remove a book from hand'
