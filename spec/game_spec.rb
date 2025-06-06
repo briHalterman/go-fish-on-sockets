@@ -22,11 +22,30 @@ describe 'Game' do
     end
   end
 
-  describe 'deal_hands' do
-    it 'should deal seven cards to each player' do
+  describe 'determine_deal_size' do
+    it 'should assign a deal size of seven if there are two or three players' do
       game.add_player('Player1')
       game.add_player('Player2')
-      game.deal_hands
+
+      expect(game.determine_deal_size).to eq 7
+    end
+
+    it 'should assign a deal size of five if there are four or five players' do
+      game.add_player('Player1')
+      game.add_player('Player2')
+      game.add_player('Player3')
+      game.add_player('Player5')
+
+      expect(game.determine_deal_size).to eq 5
+    end
+  end
+
+  describe 'deal_hands' do
+    it 'should deal the correct number of cards to each player' do
+      game.add_player('Player1')
+      game.add_player('Player2')
+      deal_size = game.determine_deal_size
+      game.deal_hands(deal_size)
 
       expect(game.players[0].hand.count).to eq 7
       expect(game.players[1].hand.count).to eq 7
@@ -39,18 +58,36 @@ describe 'Game' do
       stable_deck = Deck.new
       shuffle_deck = game.deck
       expect(shuffle_deck).to eq stable_deck
-      game.start
+      deal_size = 7
+      game.start(deal_size)
+      # binding.irb
       expect(shuffle_deck).to_not eq stable_deck
     end
 
-    it 'should deal seven cards to each player' do
+    it 'should deal the correct number of cards to each player' do
       game.add_player('Player1')
       game.add_player('Player2')
-      game.start
+      deal_size = game.determine_deal_size
+      game.start(deal_size)
 
       expect(game.players[0].hand.count).to eq 7
       expect(game.players[1].hand.count).to eq 7
       expect(game.deck.cards.count).to eq Deck::FULL_DECK_SIZE - 14
+    end
+
+    it 'should deal the correct number of cards to each player' do
+      game.add_player('Player1')
+      game.add_player('Player2')
+      game.add_player('Player3')
+      game.add_player('Player4')
+      deal_size = game.determine_deal_size
+      game.start(deal_size)
+
+      expect(game.players[0].hand.count).to eq 5
+      expect(game.players[1].hand.count).to eq 5
+      expect(game.players[2].hand.count).to eq 5
+      expect(game.players[3].hand.count).to eq 5
+      expect(game.deck.cards.count).to eq Deck::FULL_DECK_SIZE - 20
     end
 
     it 'should check each player for books'
