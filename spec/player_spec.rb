@@ -4,15 +4,21 @@ require_relative '../lib/card.rb'
 describe 'Player' do
   describe '#initialize' do
     it 'should initialize with a name' do
-      player = Player.new('PlayerX')
+      player = Player.new('Player')
 
-      expect(player.name).to eq 'PlayerX'
+      expect(player.name).to eq 'Player'
     end
 
     it 'should initialize with an empty hand' do
       player = Player.new('Player')
 
       expect(player.hand).to be_empty
+    end
+
+    it 'should initialize with an empty book stack' do
+      player = Player.new('Player')
+
+      expect(player.book_stack.count).to eq 0
     end
   end
 
@@ -31,8 +37,13 @@ describe 'Player' do
   end
 
   describe '#handle_book' do
-    it 'should record a book'
+    it 'should check a player\'s hand for a set of cards with matching ranks'
 
-    it 'should remove a book from hand'
+    it 'should make a book'
+
+    it 'should add the book to a player\'s book stack'
+
+    it 'should remove a set of cards with matching ranks from a players hand'
+
   end
 end
